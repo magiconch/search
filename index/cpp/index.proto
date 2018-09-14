@@ -1,0 +1,57 @@
+syntax="proto2";
+// 命名空间
+package doc_index_proto;
+
+message Pair {
+  // [beg, end) 区间. 当前这个词在原标题/正文中下标的区间范围
+  // 按照区间的方式来保存, 最主要是从空间的角度来考虑
+  required int32 beg = 1;
+  required int32 end = 2;
+};
+
+// 这个结构表示了正排索引中的一个元素
+// 这一个元素就和一个 html 文档是对应的
+message DocInfo {
+  // 文档id
+  required uint64 doc_id = 1;
+  required string title = 2;
+  required string content = 3;
+  // 点击URL
+  required string jump_url = 4;
+  // 展示URL
+  required string show_url = 5;
+  // 标题的分词结果
+  repeated Pair title_token = 6;
+  // 正文的分词结果
+  repeated Pair content_token = 7;
+};
+
+message Weight {
+  // doc_id 和正排索引中的下标是对应的
+  required uint64 doc_id = 1;
+  // 表示当前词在当前文档中的权重(基于词出现的位置和次数)
+  required int32 weight = 2;
+  // 
+  required int32 first_pos = 3;
+};
+
+// 表示倒排索引中的一个键值对
+message KwdInfo {
+  // 关键词的字面值
+  required string key = 1;
+  // 每个倒排拉链, 键值对中的value
+  repeated Weight value = 2;
+};
+
+// 描述整个索引在 protobuf 中的结构
+message Index {
+  // repeated 描述该字段会重复出现 N 次
+  // repeated 字段涉及到的核心操作有:
+  // 1. 获取重复元素的个数 _size 后缀
+  // 2. 取到数组中的某个元素, 字段名 + 下标
+  // 3. 给数组中新增元素, add_ 前缀
+  repeated DocInfo forward_index = 1;
+  // 由于 protobuf 结构中不能直接表示 hash 表.
+  // 只能是使用数组的方式来把所有的键值对保存起来
+  repeated KwdInfo inverted_index = 2;
+};

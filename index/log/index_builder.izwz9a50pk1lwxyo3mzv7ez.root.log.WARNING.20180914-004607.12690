@@ -1,0 +1,4 @@
+Log file created at: 2018/09/14 00:46:07
+Running on machine: izwz9a50pk1lwxyo3mzv7ez
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+F0914 00:46:07.752063 12690 index.cc:66] Check failed: doc_info == NULL 

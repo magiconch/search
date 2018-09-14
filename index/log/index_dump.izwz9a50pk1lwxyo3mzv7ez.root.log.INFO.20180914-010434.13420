@@ -1,0 +1,6 @@
+Log file created at: 2018/09/14 01:04:34
+Running on machine: izwz9a50pk1lwxyo3mzv7ez
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0914 01:04:34.317961 13420 index.cc:246] Index Load
+I0914 01:04:34.695986 13420 index.cc:303] Index Dump
+I0914 01:04:35.601562 13420 index.cc:323] Index Dump Done

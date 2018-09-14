@@ -1,0 +1,7 @@
+Log file created at: 2018/09/14 00:46:07
+Running on machine: izwz9a50pk1lwxyo3mzv7ez
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0914 00:46:07.751430 12690 index.cc:52] Index Build
+I0914 00:46:07.751695 12690 index.cc:64]  求那张“在这个时代，生孩子就是生奴隶”的图 /t/14990024?page=1  [AD]酸奶or坚果你喜欢哪种(ﾟ∀。) 分享图片 分享图片 分享图片 怎么看不到图？ 分享图片 分享图片 >>No.14990063(´ﾟДﾟ`)b
+I0914 00:46:07.751744 12690 index.cc:87]  求那张“在这个时代，生孩子就是生奴隶”的图 /t/14990024?page=1  [AD]酸奶or坚果你喜欢哪种(ﾟ∀。) 分享图片 分享图片 分享图片 怎么看不到图？ 分享图片 分享图片 >>No.14990063(´ﾟДﾟ`)b
+F0914 00:46:07.752063 12690 index.cc:66] Check failed: doc_info == NULL 
