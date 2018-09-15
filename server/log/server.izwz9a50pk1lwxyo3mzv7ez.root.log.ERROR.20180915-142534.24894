@@ -1,0 +1,4 @@
+Log file created at: 2018/09/15 14:25:34
+Running on machine: izwz9a50pk1lwxyo3mzv7ez
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+F0915 14:25:34.003986 24894 server_main.cc:54] Check failed: server.Start("0.0.0.0:" + fLS::FLAGS_port) 

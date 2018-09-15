@@ -1,0 +1,7 @@
+Log file created at: 2018/09/15 13:11:04
+Running on machine: izwz9a50pk1lwxyo3mzv7ez
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0915 13:11:04.660605 22703 index.cc:243] Index Load
+I0915 13:11:06.385754 22708 doc_searcher.cc:136] [Request]timestamp: 1536988266
+query: ""
+I0915 13:11:06.385782 22708 doc_searcher.cc:137] [Response]timestamp: 1536988266

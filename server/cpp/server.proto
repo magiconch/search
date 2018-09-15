@@ -1,0 +1,30 @@
+syntax="proto2";
+package doc_server_proto;
+// 用于对RPC框架提供支持
+// 需要生成 RPC 相关的代码
+option cc_generic_services = true;
+
+// 定义请求和响应的结构
+message Request {
+  required int64 timestamp = 1;
+  // 搜索的查询词
+  required string query = 2;
+};
+
+// 每个 Item 对应一个搜索到的结果
+message Item {
+  required string title = 1;
+  required string desc = 2;
+  required string jump_url = 3;
+  required string show_url = 4;
+};
+
+message Response {
+  required int64 timestamp = 1;
+  repeated Item item = 2;
+};
+
+// 定义服务器端允许的远程调用接口
+service DocServerAPI {
+  rpc Search(Request) returns (Response);
+};
