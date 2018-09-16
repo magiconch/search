@@ -65,8 +65,8 @@ bool Index::Build(const std::string& input_path) {
     CHECK(doc_info != NULL);
     // 3. 根据当前的 DocInfo 构造倒排索引中的键值对,
     //    并更新倒排索引
-    //    BuildForward 更新了正排索引, 同时也把新构造好的
-    //    doc_info 对象返回回来. 后面做倒排的时候是需要
+    //    BuildForward 更新了正排索引, 返回新构造好的
+    //    doc_info 对象. 后面倒排使用
     //    用到这里的 doc_info
     //    直接放到Index::inverted_index_
     BuildInverted(*doc_info);
@@ -167,7 +167,6 @@ void Index::BuildInverted(const DocInfo& doc_info) {
         );
     // 1. 如果搜索英文的话，进行大小写弱处理
     boost::to_lower(word);
-    // 2. 如何过滤掉分词结果中的暂停词?
     //    把暂停词表加载到一个hash表中. 依次取分词结果, 判定
     //    是否是暂停词. 如果是就过滤掉, 不参与次数统计
     if (stop_word_dict_.Find(word)) {
@@ -210,10 +209,6 @@ void Index::BuildInverted(const DocInfo& doc_info) {
 }
 
 int Index::CalcWeight(const int title_cnt, const int content_cnt) {
-  // 拍个脑门来定义一下权重计算规则
-  // 一个词在正文中出现十次, 才能超过标题中出现一次
-  // 对于真实的搜索引擎中, 权重计算可能会非常复杂, 
-  // 需要用几万行代码来描述, 有专门的策略团队来进行研究
   return 10 * title_cnt + content_cnt;
 }
 
