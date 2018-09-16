@@ -71,7 +71,7 @@ void PackageRequest(Request* req) {
 }
 
 void ParseResponse(const Response& resp) {
-  // CGI程序应该返回哪些信息呢?
+  // CGI程序返回的信息呢
   // 1. 部分header(带有空行的)
   // 2. body
   // std::cout << resp.Utf8DebugString() << std::endl;
@@ -114,8 +114,8 @@ void Search(const Request& req, Response* resp) {
   doc_server_proto::DocServerAPI_Stub stub(&channel);
   RpcController ctrl;
   // ctrl.SetTimeout(2000);
-  // 第四个参数为 NULL, 表示按照同步的方式来调用服务器.
-  // 不为 NULL, 就表示异步的方式来调用服务器. 此时这个闭包就
+  // NULL表示按照同步的方式来调用服务器.
+  // 不为 NULL 表示异步的方式来调用服务器. 此时这个闭包就
   // 用来处理服务器的响应结构
   stub.Search(&ctrl, &req, resp, NULL);
   if (ctrl.Failed()) {
